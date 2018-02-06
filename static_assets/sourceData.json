@@ -1,0 +1,36 @@
+{
+	"rooms": [
+		{
+			"room": "office",
+			"image":["right-image", "left-image", "top-image", "bottom-image", "front-image", "back-image"],
+			"tooltips": [
+				{
+					"text": "this is some text 1",
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": 0
+				},
+				{
+					"text": "this is some text 2",
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": 0
+				}
+			],
+			"buttons": [
+				{
+					"text": "this is a button 1",
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": 0
+				},
+				{
+					"text": "this is a button 2",
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": 0
+				}
+			]
+		}
+	]
+}
