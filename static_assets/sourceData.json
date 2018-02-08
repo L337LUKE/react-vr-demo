@@ -1,8 +1,63 @@
 {
 	"rooms": [
 		{
-			"room": "office",
+			"roomName": "office",
 			"image":["right-image", "left-image", "top-image", "bottom-image", "front-image", "back-image"],
+			"tooltips": [
+				{
+					"text": "this is some text 1",
+					"rotateY": 0,
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": -3
+				},
+				{
+					"text": "this is some text 2",
+					"rotateY": 90,
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": -3
+				},
+				{
+					"text": "this is some text 3",
+					"rotateY": 180,
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": -3
+				},
+				{
+					"text": "this is some text 4",
+					"rotateY": 270,
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": -3
+				}
+			],
+			"buttons": [
+				{
+					"text": "this is a button 1",
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": 0
+				},
+				{
+					"text": "this is a button 2",
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": 0
+				}
+			]
+		},
+		{
+			"roomName": "kitchen",
+			"image": [
+				"right-image",
+				"left-image",
+				"top-image",
+				"bottom-image",
+				"front-image",
+				"back-image"
+			],
 			"tooltips": [
 				{
 					"text": "this is some text 1",
