@@ -31,9 +31,9 @@ export default class react_vr_demo extends React.Component {
 	renderTooltips() {
 		let data = this.state.rooms[0].tooltips;
 		console.log(data);
-		return data.map((x) => {
+		return data.map((x, key) => {
 			return (
-				<View>
+				<View key={key}>
 					<VrButton style={{
 						backgroundColor: '#777879',
 						layoutOrigin: [.5, .5, 0],
@@ -53,7 +53,17 @@ export default class react_vr_demo extends React.Component {
 	render() {
 		return (
 			<View>
-				<Pano source={asset('chess-world.jpg')} />
+				<Pano source={{
+					// must always go in sequence right, left, top, bottom, back, front
+					uri: [
+						'../static_assets/left.png',
+						'../static_assets/right.png',
+						'../static_assets/top.png',
+						'../static_assets/bottom.png',
+						'../static_assets/back.png',
+						'../static_assets/front.png',
+					]
+				}} />
 				{this.state.rooms && this.renderTooltips()}
 			</View>
 		);
