@@ -2,7 +2,14 @@
 	"rooms": [
 		{
 			"roomName": "office",
-			"image":["right-image", "left-image", "top-image", "bottom-image", "front-image", "back-image"],
+			"pano":[
+				"../static_assets/sky-left.jpg", 
+				"../static_assets/sky-right.jpg", 
+				"../static_assets/sky-top.jpg", 
+				"../static_assets/sky-bottom.jpg", 
+				"../static_assets/sky-back.jpg", 
+				"../static_assets/sky-front.jpg"
+			],
 			"tooltips": [
 				{
 					"text": "this is some text 1",
@@ -50,26 +57,42 @@
 		},
 		{
 			"roomName": "kitchen",
-			"image": [
-				"right-image",
-				"left-image",
-				"top-image",
-				"bottom-image",
-				"front-image",
-				"back-image"
+			"pano": [
+				"../static_assets/desert-left.jpg",
+				"../static_assets/desert-right.jpg",
+				"../static_assets/desert-top.jpg",
+				"../static_assets/desert-bottom.jpg",
+				"../static_assets/desert-back.jpg",
+				"../static_assets/desert-front.jpg"
 			],
 			"tooltips": [
 				{
 					"text": "this is some text 1",
+					"rotateY": 0,
 					"x-axis": 0,
 					"y-axis": 0,
-					"z-axis": 0
+					"z-axis": -3
 				},
 				{
 					"text": "this is some text 2",
+					"rotateY": 90,
 					"x-axis": 0,
 					"y-axis": 0,
-					"z-axis": 0
+					"z-axis": -3
+				},
+				{
+					"text": "this is some text 3",
+					"rotateY": 180,
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": -3
+				},
+				{
+					"text": "this is some text 4",
+					"rotateY": 270,
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": -3
 				}
 			],
 			"buttons": [

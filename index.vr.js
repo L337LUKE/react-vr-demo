@@ -25,12 +25,25 @@ export default class react_vr_demo extends React.Component {
 			.then(response => response.json())
 			.then(responseData => this.setState({
 				rooms: responseData.rooms
-			}))
+			}));
+	}
+	renderPano() {
+		// Pano is an image projected onto a sphere that fully surrounds the viewer. 
+		//It is a spehere of 1000m with a centre located at [0, 0, 0]
+
+		// must always go in sequence left, right, top, bottom, back, front
+		let data = this.state.rooms[1].pano;
+		return (
+			<Pano source={{
+				uri: [
+					...data
+				]
+			}} />
+		)
 	}
 
 	renderTooltips() {
-		let data = this.state.rooms[0].tooltips;
-		console.log(data);
+		let data = this.state.rooms[1].tooltips;
 		return data.map((x, key) => {
 			return (
 				<View key={key}>
@@ -47,24 +60,14 @@ export default class react_vr_demo extends React.Component {
 					</VrButton>
 				</View>
 			)
-		})
+		});
 	}
 
 	render() {
 		return (
 			<View>
-				<Pano source={{
-					// must always go in sequence right, left, top, bottom, back, front
-					uri: [
-						'../static_assets/left.png',
-						'../static_assets/right.png',
-						'../static_assets/top.png',
-						'../static_assets/bottom.png',
-						'../static_assets/back.png',
-						'../static_assets/front.png',
-					]
-				}} />
 				{this.state.rooms && this.renderTooltips()}
+				{this.state.rooms && this.renderPano()}
 			</View>
 		);
 	}
