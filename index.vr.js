@@ -16,6 +16,7 @@ export default class react_vr_demo extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			currentRoom: 0,
 			rooms: null
 		};
 	}
@@ -31,8 +32,10 @@ export default class react_vr_demo extends React.Component {
 		// Pano is an image projected onto a sphere that fully surrounds the viewer. 
 		//It is a spehere of 1000m with a centre located at [0, 0, 0]
 
+		let { currentRoom } = this.state;
+
 		// must always go in sequence left, right, top, bottom, back, front
-		let data = this.state.rooms[0].pano;
+		let data = this.state.rooms[currentRoom].pano;
 		return (
 			<Pano source={{
 				uri: [
@@ -41,9 +44,15 @@ export default class react_vr_demo extends React.Component {
 			}} />
 		)
 	}
+	changeRoom(roomID) {
+		console.log('id', roomID);
+		this.setState({
+			currentRoom: roomID
+		});
+	}
 	renderButtons() {
-		let data = this.state.rooms[0].buttons;
-		console.log(data);
+		let { currentRoom } = this.state;
+		let data = this.state.rooms[currentRoom].buttons;
 		return data.map((x, key) => {
 			return (
 				<View key={key}>
@@ -57,7 +66,7 @@ export default class react_vr_demo extends React.Component {
 								{ translate: [0, 1, -3] }
 							]
 						}}
-						onClick={() => { console.log('clicked') }}
+						onClick={() => { this.changeRoom(key) }}
 						onEnter={() => { console.log('enter') }}
 						onExit={() => { console.log('exit') }}
 					>
@@ -68,7 +77,8 @@ export default class react_vr_demo extends React.Component {
 		});
 	}
 	renderTooltips() {
-		let data = this.state.rooms[0].tooltips;
+		let { currentRoom } = this.state;
+		let data = this.state.rooms[currentRoom].tooltips;
 		return data.map((x, key) => {
 			return (
 				<View key={key}>

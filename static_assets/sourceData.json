@@ -42,29 +42,22 @@
 			],
 			"buttons": [
 				{
-					"text": "this is a button 1",
+					"text": "sky room",
 					"rotateY": 0,
 					"x-axis": 0,
 					"y-axis": 0,
 					"z-axis": -3
 				},
 				{
-					"text": "this is a button 2",
+					"text": "desert room",
 					"rotateY": 90,
 					"x-axis": 0,
 					"y-axis": 0,
 					"z-axis": -3
 				},
 				{
-					"text": "this is a button 3",
+					"text": "box room",
 					"rotateY": 180,
-					"x-axis": 0,
-					"y-axis": 0,
-					"z-axis": -3
-				},
-				{
-					"text": "this is a button 4",
-					"rotateY": 270,
 					"x-axis": 0,
 					"y-axis": 0,
 					"z-axis": -3
@@ -113,15 +106,86 @@
 			],
 			"buttons": [
 				{
-					"text": "this is a button 1",
+					"text": "sky room",
 					"rotateY": 0,
 					"x-axis": 0,
 					"y-axis": 0,
 					"z-axis": -3
 				},
 				{
-					"text": "this is a button 2",
+					"text": "desert room",
+					"rotateY": 90,
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": -3
+				},
+				{
+					"text": "box room",
+					"rotateY": 180,
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": -3
+				}
+			]
+		},
+		{
+			"roomName": "box",
+			"pano": [
+				"../static_assets/box-left.png",
+				"../static_assets/box-right.png",
+				"../static_assets/box-top.png",
+				"../static_assets/box-bottom.png",
+				"../static_assets/box-back.png",
+				"../static_assets/box-front.png"
+			],
+			"tooltips": [
+				{
+					"text": "this is some text 1",
 					"rotateY": 0,
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": -3
+				},
+				{
+					"text": "this is some text 2",
+					"rotateY": 90,
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": -3
+				},
+				{
+					"text": "this is some text 3",
+					"rotateY": 180,
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": -3
+				},
+				{
+					"text": "this is some text 4",
+					"rotateY": 270,
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": -3
+				}
+			],
+			"buttons": [
+				{
+					"text": "sky room",
+					"rotateY": 0,
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": -3
+				},
+				{
+					"text": "desert room",
+					"rotateY": 90,
+					"x-axis": 0,
+					"y-axis": 0,
+					"z-axis": -3
+				},
+				{
+					"text": "box room",
+					"rotateY": 180,
 					"x-axis": 0,
 					"y-axis": 0,
 					"z-axis": -3
