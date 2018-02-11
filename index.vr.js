@@ -54,26 +54,28 @@ export default class react_vr_demo extends React.Component {
 		let { currentRoom } = this.state;
 		let data = this.state.rooms[currentRoom].buttons;
 		return data.map((x, key) => {
-			return (
-				<View key={key}>
-					<VrButton
-						style={{
-							backgroundColor: '#777879',
-							layoutOrigin: [.5, .5, 0],
-							position: 'absolute',
-							transform: [
-								{ rotateY: x.rotateY },
-								{ translate: [0, 1, -3] }
-							]
-						}}
-						onClick={() => { this.changeRoom(key) }}
-						onEnter={() => { console.log('enter') }}
-						onExit={() => { console.log('exit') }}
-					>
-						<Text>{x.text}</Text>
-					</VrButton>
-				</View>
-			)
+			if(key !== currentRoom) {
+				return (
+					<View key={key}>
+						<VrButton
+							style={{
+								backgroundColor: '#777879',
+								layoutOrigin: [.5, .5, 0],
+								position: 'absolute',
+								transform: [
+									{ rotateY: x.rotateY },
+									{ translate: [0, 1, -3] }
+								]
+							}}
+							onClick={() => { this.changeRoom(key) }}
+							onEnter={() => { console.log('enter') }}
+							onExit={() => { console.log('exit') }}
+						>
+							<Text>{x.text}</Text>
+						</VrButton>
+					</View>
+				)
+			}
 		});
 	}
 	renderTooltips() {
