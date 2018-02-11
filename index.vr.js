@@ -16,7 +16,7 @@ export default class react_vr_demo extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			currentRoom: 0,
+			currentRoom: 1,
 			rooms: null
 		};
 	}
@@ -44,12 +44,30 @@ export default class react_vr_demo extends React.Component {
 			}} />
 		)
 	}
-	changeRoom(roomID) {
-		console.log('id', roomID);
+
+	setTimer = {
+		handle: function() {
+			if (this.timerID !== null) {
+				this.clear();
+			}
+			this.timerID = setTimeout(() => {
+				console.log('times up'); // todo: set my action
+				this.clear();
+			}, 5000);
+		},
+		clear: function() {
+			clearTimeout(this.timerID);
+			this.timerID = null;
+		},
+		timerID: null,
+	};
+
+	_changeRoom(roomID) {
 		this.setState({
 			currentRoom: roomID
 		});
 	}
+
 	renderButtons() {
 		let { currentRoom } = this.state;
 		let data = this.state.rooms[currentRoom].buttons;
@@ -67,9 +85,9 @@ export default class react_vr_demo extends React.Component {
 									{ translate: [0, 1, -3] }
 								]
 							}}
-							onClick={() => { this.changeRoom(key) }}
-							onEnter={() => { console.log('enter') }}
-							onExit={() => { console.log('exit') }}
+							onClick={() => { this._changeRoom(key) }}
+							onEnter={() => { this.setTimer.handle() }}
+							onExit={() => { this.setTimer.clear() }}
 						>
 							<Text>{x.text}</Text>
 						</VrButton>
@@ -84,15 +102,19 @@ export default class react_vr_demo extends React.Component {
 		return data.map((x, key) => {
 			return (
 				<View key={key}>
-					<VrButton style={{
-						backgroundColor: '#777879',
-						layoutOrigin: [.5, .5, 0],
-						position: 'absolute',
-						transform: [
-							{ rotateY: x.rotateY },
-							{ translate: [0, 0, -3] }
-						]	
-					}}>
+					<VrButton 
+						style={{
+							backgroundColor: '#777879',
+							layoutOrigin: [.5, .5, 0],
+							position: 'absolute',
+							transform: [
+								{ rotateY: x.rotateY },
+								{ translate: [0, 0, -3] }
+							]	
+						}}
+						onEnter={() => { console.log('enter') }}
+						onExit={() => { console.log('exit') }}
+					>
 						<Text>{x.text}</Text>
 					</VrButton>
 				</View>
