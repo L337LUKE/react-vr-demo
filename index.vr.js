@@ -2,11 +2,29 @@ import React from 'react';
 import {
 	AppRegistry,
 	asset,
+	NativeModules,
 	Pano,
+	StyleSheet,
 	Text,
 	View,
-	VrButton
+	VrButton,
+	VrHeadModel,
 } from 'react-vr';
+
+const domTextboxContent = {
+	header: 'Menu',
+	links: [
+		{
+			text: 'Home',
+		},
+		{
+			text: 'New Button',
+		},
+		{
+			text: 'New Tooltip',
+		}
+	],
+};
 
 export default class react_vr_demo extends React.Component {
 	static defaultProps = {
@@ -16,7 +34,7 @@ export default class react_vr_demo extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			currentRoom: 1,
+			currentRoom: 0,
 			rooms: null
 		};
 	}
@@ -45,13 +63,18 @@ export default class react_vr_demo extends React.Component {
 		)
 	}
 
-	setTimer = {
-		handle: function() {
+	renderHUD() {
+		// render overlay 2D
+		NativeModules.DomOverlayModule.openOverlay(domTextboxContent);
+	}
+
+	Utilities = {
+		handle: function(roomID) {
 			if (this.timerID !== null) {
 				this.clear();
 			}
 			this.timerID = setTimeout(() => {
-				console.log('times up'); // todo: set my action
+				this.changeRoom(roomID)
 				this.clear();
 			}, 5000);
 		},
@@ -60,13 +83,12 @@ export default class react_vr_demo extends React.Component {
 			this.timerID = null;
 		},
 		timerID: null,
+		changeRoom: (roomID) => {
+			this.setState({
+				currentRoom: roomID
+			});
+		}
 	};
-
-	_changeRoom(roomID) {
-		this.setState({
-			currentRoom: roomID
-		});
-	}
 
 	renderButtons() {
 		let { currentRoom } = this.state;
@@ -85,9 +107,9 @@ export default class react_vr_demo extends React.Component {
 									{ translate: [0, 1, -3] }
 								]
 							}}
-							onClick={() => { this._changeRoom(key) }}
-							onEnter={() => { this.setTimer.handle() }}
-							onExit={() => { this.setTimer.clear() }}
+							onClick={() => { this.Utilities.changeRoom(key) }}
+							onEnter={() => { this.Utilities.handle(key) }}
+							onExit={() => { this.Utilities.clear() }}
 						>
 							<Text>{x.text}</Text>
 						</VrButton>
@@ -128,6 +150,7 @@ export default class react_vr_demo extends React.Component {
 				{this.state.rooms && this.renderTooltips()}
 				{this.state.rooms && this.renderPano()}
 				{this.state.rooms && this.renderButtons()}
+				{this.renderHUD()}
 			</View>
 		);
 	}

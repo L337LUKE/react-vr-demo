@@ -2,6 +2,7 @@
 with lots of notes 
 
 ## Valid Keys
+these are the only styling attributes available to you
 "display",
 "width",
 "height",
